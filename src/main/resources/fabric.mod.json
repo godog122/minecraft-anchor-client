@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "anchorclient",
+  "version": "${version}",
+  "name": "Anchor Client",
+  "description": "A PvP client mod with Safe Anchor and Auto Crystal modules",
+  "authors": [
+    "AnchorDev"
+  ],
+  "contact": {
+    "homepage": "https://github.com/godog122/minecraft-anchor-client",
+    "sources": "https://github.com/godog122/minecraft-anchor-client"
+  },
+  "license": "MIT",
+  "icon": "assets/anchorclient/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.anchormod.AnchorClientMod"
+    ],
+    "client": [
+      "com.anchormod.AnchorClientModClient"
+    ]
+  },
+  "mixins": [
+    "anchorclient.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}",
+    "java": ">=21"
+  }
+}

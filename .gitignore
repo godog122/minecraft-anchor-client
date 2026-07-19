@@ -1,0 +1,26 @@
+# gradle
+.gradle/
+build/
+out/
+classes/
+
+# idea
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# mac
+.DS_Store
+
+# vscode
+.vscode/
+.settings/
+.classpath
+.project
+
+# fabric
+run/
+
+# kotlin
+.kotlin/

@@ -1,6 +1,6 @@
 @echo off
 REM Minecraft Anchor Client - Build Script for Windows
-REM This script builds the mod JAR file locally using Gradle
+REM This script builds the mod JAR file locally
 
 echo.
 echo ========================================
@@ -20,22 +20,8 @@ if errorlevel 1 (
 echo Java found! Starting build...
 echo.
 
-REM Run gradle directly using the wrapper from build.gradle
-REM First, let's try to find gradle installation
-where gradle >nul 2>&1
-if %errorlevel% equ 0 (
-    echo Using system Gradle installation...
-    call gradle build
-) else (
-    echo Gradle not found in system PATH
-    echo Attempting to download and use Gradle wrapper...
-    
-    REM Download gradle wrapper if not present
-    if not exist "gradle\wrapper\gradle-wrapper.jar" (
-        echo Downloading Gradle wrapper...
-        powershell -Command "& {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; (New-Object System.Net.WebClient).DownloadFile('https://gradle-release-checksums.gradle.org/checksums/gradle-8.5-bin.zip', 'gradle-8.5-bin.zip'); Expand-Archive -Path 'gradle-8.5-bin.zip' -DestinationPath '.'; Move-Item -Path 'gradle-8.5\*' -Destination '.gradle' -Force; Remove-Item 'gradle-8.5-bin.zip'}"
-    )
-)
+REM Run gradle wrapper
+call gradlew.bat build
 
 if errorlevel 1 (
     echo.
